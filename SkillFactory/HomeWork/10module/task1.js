@@ -7,35 +7,18 @@
 // *NaN, хоть и относится к типу Number, числом не является.
 // Добавьте отдельную проверку для этого значения.
 
-// let someNumber = prompt('Enter some Number:');
-// someNumber = +someNumber;
+let someNumber = prompt('Enter some Number:');
+someNumber = +someNumber;
 
-// if (typeof someNumber === 'number') {
-//   if (someNumber % 2 == 0) {
-//     alert(`Число ${someNumber} - четное`);
-//   } else {
-//     alert(`Число ${someNumber} - нечетное`);
-//   }
-// }
+if (typeof someNumber === 'number') {
+  if (someNumber % 2 == 0) {
+    alert(`Число ${someNumber} - четное`);
+  } else {
+    alert(`Число ${someNumber} - нечетное`);
+  }
+}
 
-// if (typeof someNumber === 'NaN') {
-//   alert(`Число ${someNumber} - NaN`);
-// }
-
-// Дана переменная Х, которая может принимать любое значение.
-// Написать программу, которая в зависимости от типа данных Х выводит
-// в консоль сообщение вида: «X — число».
-// Опишите три случая: когда х = числу, строке или логическому типу.
-// В других случаях выводите сообщение: «Тип x не определён».
-
-let x = 'str';
-
-if (typeof x == 'number') {
-  console.log(`${x} - число!`);
-} else if (typeof x == 'string') {
-  console.log(`${x} - строка!`);
-} else if (typeof x == 'boolean') {
-  console.log(`${x} - логический тип!`);
-} else {
-  console.log(`Тип x не определён`);
+// проверку сделал, но не работает :(
+if (typeof someNumber === 'NaN') {
+  alert(`Число ${someNumber} - NaN`);
 }
