@@ -21,21 +21,23 @@ var assortmentData = [
   },
 ];
 
-/* Техническое задание
-  
-  Мяу! На сайте магазина мороженого надо отображать актуальное состояние товаров: «в наличии», «нет в наличии», «хит».
-  
-  Данные по продуктам хранятся в массиве с объектами assortmentData, каждый объект соответствует одному товару и содержит свойства:
-  
-  - inStock. Если значение true — мороженое в наличии, если false — товара в наличии нет.
-  - isHit. Если значение true — мороженое самое популярное среди покупателей.
-  
-  Каждому состоянию товара соответствует специальный класс:
-  
-  Товар в наличии — good--available.
-  Недоступный товар — good--unavailable.
-  Хит продаж — good--hit.
-  
-  Оформи код в виде функции updateCards, которая принимает на вход массив с данными. Вызови её, передав assortmentData.
-  
-  */
+var updateCards = function (goods) {
+  var elements = document.querySelectorAll('.good');
+
+  for (let i = 0; i < elements.length; i++) {
+    var element = elements[i];
+    var good = goods[i];
+
+    var availabilityClass = 'good--available';
+    if (!good.inStock) {
+      availabilityClass = 'good--unavailable';
+    }
+    element.classList.add(availabilityClass);
+
+    if (good.isHit) {
+      element.classList.add('good--hit');
+    }
+  }
+};
+
+updateCards(assortmentData);
