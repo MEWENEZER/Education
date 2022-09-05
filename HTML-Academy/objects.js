@@ -82,3 +82,68 @@ let house = {
 
 console.log(house.calculateSquare());
 console.log(house.calculatePrice());
+
+/* Training */
+
+let car = {
+  model: 'AUDI',
+  color: 'black',
+  horsePower: 750,
+  price: 250000,
+};
+
+car.presentCar = function () {
+  console.log(
+    `Model - ${this.model}, color - ${this.color}, power - ${this.horsePower}, price - ${this.price}`
+  );
+};
+
+car.makeDiscount = function (discount) {
+  this.price -= discount;
+};
+
+car.makeDiscount(50000);
+car.presentCar();
+
+/* Construktor */
+
+class Book {
+  constructor(name, author, year, price) {
+    this.name = name;
+    this.author = author;
+    this.year = year;
+    this.price = price;
+  }
+}
+
+let book = new Book('Война и Мир', 'Толстой Л.Н.', 1800, 2490);
+
+console.log(book);
+
+/* practise */
+
+class Car {
+  constructor(model, year, color, price) {
+    this.model = model;
+    this.year = year;
+    this.color = color;
+    this.price = price;
+
+    this.signal = function () {
+      console.log('beep!');
+    };
+
+    this.presentCar = function () {
+      console.log(
+        `XXX - Model - ${this.model}, color - ${this.color}, power - ${this.horsePower}, price - ${this.price} - XXX`
+      );
+    };
+
+    this.makeDiscount = function (discount) {
+      this.price -= discount;
+    };
+  }
+}
+
+let audiA7 = new Car('AUDI', 2020, 'blue', 200000);
+audiA7.presentCar();
