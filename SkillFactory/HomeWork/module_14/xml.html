@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">
+        It's xmlDOM practice :)
+    </h1>
+    <script>
+        // 14.1. JSON vs XML
+
+        // Вам дана заготовка и результат, который вы должны получить. Ваша задача — написать код,
+        // который будет преобразовывать XML в JS-объект и выводить его в консоль.
+
+        // XML
+        const xmlString = `
+            <list>
+            <student>
+                <name lang="en">
+                <first>Ivan</first>
+                <second>Ivanov</second>
+                </name>
+                <age>35</age>
+                <prof>teacher</prof>
+            </student>
+            <student>
+                <name lang="ru">
+                <first>Петр</first>
+                <second>Петров</second>
+                </name>
+                <age>58</age>
+                <prof>driver</prof>
+            </student>
+            </list>
+        `;
+
+        let xmlArray = (xml) => {
+            let parser = new DOMParser();
+            let xmlDOM = parser.parseFromString(xml, 'text/xml');
+
+            const listNode = xmlDOM.querySelector('list');
+
+            for (let i = 0; i < listNode.children.length; i++) {
+
+                let nameNode = listNode.children[i].querySelector('name');
+
+                let firstNameNode = nameNode.querySelector('first');
+                let secondNameNode = nameNode.querySelector('second');
+
+                let langNode = nameNode.getAttribute('lang');
+
+                let ageNode = listNode.querySelector('age');
+                let profNode = listNode.querySelector('prof');
+
+                let list = {
+                    name: `${firstNameNode.textContent} ${secondNameNode.textContent}`,
+                    age: Number(ageNode.textContent),
+                    prof: profNode.textContent,
+                    lang: langNode,
+                };
+
+                console.log('list', list);
+            }
+        }
+
+        xmlArray(xmlString);
+
+    </script>
+</body>
+
+</html>

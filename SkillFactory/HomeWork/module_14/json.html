@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">
+        It's JSON practice :)
+    </h1>
+    <script>
+
+        const jsonString = `{
+            "list": [
+                {
+                    "name": "Petr",
+                    "age": "20",
+                    "prof": "mechanic"
+                },
+                {
+                    "name": "Vova",
+                    "age": "60",
+                    "prof": "pilot"
+                }
+            ]
+        }`;
+
+        let parse = JSON.parse(jsonString);
+        let listNode = parse.list;
+
+        for (let i = 0; i < listNode.length; i++) {
+            let list = {
+                name: listNode[i].name,
+                age: listNode[i].age,
+                prof: listNode[i].prof
+            }
+
+            console.log('list', list);
+        }
+
+    </script>
+</body>
+
+</html>
