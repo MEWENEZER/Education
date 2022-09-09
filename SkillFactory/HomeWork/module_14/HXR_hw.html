@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHR</title>
+</head>
+
+<body>
+    <form class="form">
+        <fieldset>
+            <legend>
+                Введите любое число
+            </legend>
+
+            <label>
+                Число:
+                <input class="input" type="text" placeholder="1, 2, 3..." required>
+            </label>
+
+            <button class="btn" type="submit">
+                Подтвердить
+            </button>
+        </fieldset>
+    </form>
+
+    <div class="displayResult">
+
+    </div>
+
+
+    <script>
+
+        const btn = document.querySelector('.btn');
+        const input = document.querySelector('.input');
+
+        // Добавляем обрабочик ответа сервера
+        let useRequest = function (url) {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
+
+            xhr.onload = function () {
+                if (xhr.status != 200) { // HTTP ошибка?
+                    console.log('Статус ответа: ', xhr.status);
+                } else {
+                    console.log('Статус ответа: ', xhr.status);
+                    // Ответ мы получаем в формате JSON, поэтому его надо распарсить
+                    // console.log('Ответ сервера JSON', xhr.response);
+
+                    // Парсим и выводим ответ сервера
+                    let result = JSON.parse(xhr.response);
+                    console.log(result)
+                }
+            }
+
+            // Добавляем обрабочик процесса загрузки
+            xhr.onprogress = function (event) {
+                // Выведем прогресс загрузки
+                console.log(`Загружено ${event.loaded} из ${event.total}`)
+            };
+
+            // Добавляем обрабочик ошибки
+            xhr.onerror = function () {
+                // обработаем ошибку, не связанную с HTTP (например, нет соединения)
+                console.log('Ошибка! Статус ответа: ', xhr.status);
+            };
+
+            // Отправляем запрос
+            xhr.send();
+        };
+
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            if (input.value >= 1 && input.value <= 10) {
+                console.log(`Введенное число - ${input.value}`);
+                useRequest('https://www.abibliadigital.com.br/api/books');
+                // useRequest('https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15');
+            } else {
+                console.log(`Введенное число - ${input.value} \nПОВТОРИТЕ ВВОД`);
+            }
+            input.value = ''
+        })
+
+
+
+    </script>
+</body>
+
+</html>
