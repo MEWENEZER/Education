@@ -50,8 +50,39 @@
                     // console.log('Ответ сервера JSON', xhr.response);
 
                     // Парсим и выводим ответ сервера
-                    let result = JSON.parse(xhr.response);
-                    console.log(result)
+                    let parse = JSON.parse(xhr.response);
+                    console.log(parse)
+
+                    for (let i = 0; i < parse.length; i++) {
+                        let list = {
+                            author: parse[i].author,
+                            group: parse[i].group,
+                            name: parse[i].name
+                        }
+
+                        console.log(list)
+
+                        function displayResult(apiData) {
+                            let cards = '';
+                            apiData.forEach(item => {
+                                const cardBlock = `
+                                <div class="card">
+                                    <img
+                                    src="${item.download_url}"
+                                    class="card-image"
+                                    />
+                                    <p>${item.author}</p>
+                                </div>
+                                `;
+                                cards = cards + cardBlock;
+                            });
+
+                            // console.log('end cards', cards);
+
+                            resultNode.innerHTML = cards;
+                        }
+
+                    }
                 }
             }
 
