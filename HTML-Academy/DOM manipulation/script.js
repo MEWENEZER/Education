@@ -22,7 +22,6 @@
 let chat = document.querySelector('.chat');
 
 let chatContent = chat.querySelector('.chat-content'); // контейнер сообщения
-let items = chatContent.children;
 
 let chatForm = chat.querySelector('.chat-form'); // форма
 let chatFormInput = chatForm.querySelector('.chat-form-input');
@@ -37,10 +36,6 @@ let addCheckHandler = function (item) {
   });
 };
 
-for (let i = 0; i < items.length; i++) {
-  addCheckHandler(items[i]);
-}
-
 chatForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
 
@@ -51,10 +46,10 @@ chatForm.addEventListener('submit', (evt) => {
   let message = completeMesage.querySelector('.chat-message-text');
   message.textContent = inputTextContent;
 
-  addCheckHandler(completeMesage);
-
   // добавление готового темплейта на сайт
   chatContent.appendChild(completeMesage);
   // обнуление input
   chatFormInput.value = '';
+
+  addCheckHandler(completeMesage);
 });
