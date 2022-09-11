@@ -19,32 +19,42 @@
 
 */
 
-const chat = document.querySelector('.chat');
-const chatForm = chat.querySelector('.chat-form');
+let chat = document.querySelector('.chat');
 
 let chatContent = chat.querySelector('.chat-content'); // контейнер сообщения
+let items = chatContent.children;
 
-let chatFormInput = chatForm.querySelector('.chat-form-input'); // ввод текста
-let chatFormButton = chatForm.querySelector('.chat-form-button'); // кнопка отправить
+let chatForm = chat.querySelector('.chat-form'); // форма
+let chatFormInput = chatForm.querySelector('.chat-form-input');
 
 let chatTemplate = document.querySelector('#message-template').content;
-let deleteButton = chatTemplate.querySelector('.chat-message-button');
+let newItemTemplate = chatTemplate.querySelector('.chat-message');
 
-let message = chatTemplate.querySelector('.chat-message-text');
+let addCheckHandler = function (item) {
+  let deleteButton = item.querySelector('.chat-message-button');
+  deleteButton.addEventListener('click', function () {
+    item.remove();
+  });
+};
+
+for (let i = 0; i < items.length; i++) {
+  addCheckHandler(items[i]);
+}
 
 chatForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
 
-  // значение imput
-  let textContent = chatFormInput.value;
-  // Передача значение input в сообщение
-  message.textContent = textContent;
-  let task = chatTemplate.cloneNode(true);
-  chatContent.appendChild(task);
-  chatFormInput.value = '';
-});
+  // значение input
+  let inputTextContent = chatFormInput.value;
+  // клонирование темплейта
+  let completeMesage = newItemTemplate.cloneNode(true);
+  let message = completeMesage.querySelector('.chat-message-text');
+  message.textContent = inputTextContent;
 
-deleteButton.addEventListener('click', () => {
-  task.classList.add(visually - hidden);
-  task.remove();
+  addCheckHandler(completeMesage);
+
+  // добавление готового темплейта на сайт
+  chatContent.appendChild(completeMesage);
+  // обнуление input
+  chatFormInput.value = '';
 });
