@@ -62,3 +62,13 @@ let days = (day) => {
 };
 
 console.log(days(1));
+
+function checkAge(age) {
+  if (age > 18) {
+    return true;
+  } else {
+    return console.log('Родители разрешили?');
+  }
+}
+
+checkAge(20);

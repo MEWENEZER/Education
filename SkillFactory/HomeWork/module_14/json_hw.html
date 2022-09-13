@@ -29,18 +29,21 @@
             ]
         }`;
 
+        let result = [];
         let parse = JSON.parse(jsonString);
         let listNode = parse.list;
+        console.log(listNode)
 
-        for (let i = 0; i < listNode.length; i++) {
-            let list = {
-                name: listNode[i].name,
-                age: listNode[i].age,
-                prof: listNode[i].prof
+        listNode.forEach(element => {
+            let student = {
+                name: element.name,
+                age: element.age,
+                prof: element.prof
             }
+            result.push(student)
+        });
 
-            console.log('list', list);
-        }
+        console.log('list', result)
 
     </script>
 </body>

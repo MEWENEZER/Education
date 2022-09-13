@@ -31,8 +31,8 @@
             </student>
             <student>
                 <name lang="ru">
-                <first>Петр</first>
-                <second>Петров</second>
+                    <first>Петр</first>
+                    <second>Петров</second>
                 </name>
                 <age>58</age>
                 <prof>driver</prof>
@@ -40,36 +40,23 @@
             </list>
         `;
 
-        let xmlArray = (xml) => {
-            let parser = new DOMParser();
-            let xmlDOM = parser.parseFromString(xml, 'text/xml');
+        let result = [];
+        let parser = new DOMParser();
+        let xmlDOM = parser.parseFromString(xmlString, 'text/xml')
 
-            const listNode = xmlDOM.querySelector('list');
+        const students = xmlDOM.querySelectorAll('student');
 
-            for (let i = 0; i < listNode.children.length; i++) {
-
-                let nameNode = listNode.children[i].querySelector('name');
-
-                let firstNameNode = nameNode.querySelector('first');
-                let secondNameNode = nameNode.querySelector('second');
-
-                let langNode = nameNode.getAttribute('lang');
-
-                let ageNode = listNode.querySelector('age');
-                let profNode = listNode.querySelector('prof');
-
-                let list = {
-                    name: `${firstNameNode.textContent} ${secondNameNode.textContent}`,
-                    age: Number(ageNode.textContent),
-                    prof: profNode.textContent,
-                    lang: langNode,
-                };
-
-                console.log('list', list);
+        students.forEach((item) => {
+            let student = {
+                name: `${item.querySelector('first').textContent} ${item.querySelector('second').textContent}`,
+                age: `${item.querySelector('age').textContent}`,
+                prof: `${item.querySelector('prof').textContent}`,
+                lang: `${item.querySelector('name').getAttribute('lang')}`
             }
-        }
+            result.push(student);
+        });
 
-        xmlArray(xmlString);
+        console.log('list', result);
 
     </script>
 </body>
