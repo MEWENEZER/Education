@@ -89,3 +89,31 @@ function solution(str) {
 console.log(solution('dima'));
 
 //
+
+function abbrevName(name) {
+  return name
+    .split(' ')
+    .map((item) => item[0].toUpperCase())
+    .join('.');
+}
+
+console.log(abbrevName('dima filimonov'));
+
+//
+
+function maps(x) {
+  return x.map((item) => item * 2);
+}
+
+console.log(maps([1, 2, 3]));
+
+//
+
+function reverseWords(str) {
+  return str
+    .split(' ')
+    .map((item) => item.split('').reverse().join(''))
+    .join(' ');
+}
+
+console.log(reverseWords('The quick brown fox jumps over the lazy dog.'));
