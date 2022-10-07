@@ -6,12 +6,12 @@
  * @return {number}
  */
 var findMaxConsecutiveOnes = function (nums) {
-  let currentIndex = 0;
-  let maxIndex = 0;
+  let currentIndex = 0,
+    maxIndex = 0;
 
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] === 1) {
-      currentIndex += 1;
+  for (const num of nums) {
+    if (num === 1) {
+      currentIndex++;
       if (currentIndex > maxIndex) {
         maxIndex = currentIndex;
       }
