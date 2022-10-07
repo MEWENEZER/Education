@@ -5,25 +5,15 @@
  * @return {number}
  */
 var findNumbers = function (nums) {
-  let divCount = 0,
-    result = 0;
+  let result = 0;
 
   for (let num of nums) {
-    while (num >= 1) {
-      divCount++;
-      num /= 10;
-    }
-
-    // divCount % 2 === 0 ? result++ : 0;
-
-    if (divCount % 2 === 0) {
+    if (!(String(num).length % 2)) {
       result++;
     }
-
-    divCount = 0;
   }
 
   return result;
 };
 
-console.log(findNumbers([1000, 5, 12, 123]));
+console.log(findNumbers([100, 5, 12, 123]));
