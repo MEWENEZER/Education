@@ -275,4 +275,20 @@ function generateIntegers(n) {
   return arr;
 }
 
-console.log(generateIntegers(5));
+// console.log(generateIntegers(5));
+
+// ЗАДАЧА 2
+// Дано целое число n и два других значения. Функция valueRepeater должна создавать массив размером n,
+// в который входят два других значения и они чередуются.
+
+function valueRepeater(n, a, b) {
+  let arr = [];
+
+  for (let i = 0; i < n; i++) {
+    arr.push(i % 2 == 0 ? a : b);
+  }
+
+  return arr;
+}
+
+console.log(valueRepeater(5, 'a', 'b')); // [ 'a', 'b', 'a', 'b', 'a' ]
