@@ -324,4 +324,19 @@ function arraySquarer(arr) {
   return newArr;
 }
 
-console.log(arraySquarer([1, 2, 3, 4, 5]));
+// console.log(arraySquarer([1, 2, 3, 4, 5]));
+
+// ЗАДАЧА 2
+// Реализуйте функцию sumArray, которая принимает массив с числами, а возвращает сумму этих чисел.
+// Попробуйте решить эту задачу с помощью forEach.
+
+function sumArray(arr) {
+  let sum = 0;
+
+  arr.forEach((item) => (sum += item));
+  //   return arr.reduce((item, index) => item + index, 0);
+
+  return sum;
+}
+
+console.log(sumArray([1, 2, 3, 4, 5]));
