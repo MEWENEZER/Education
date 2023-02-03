@@ -160,3 +160,11 @@ function makeItFunny(text, num) {
 }
 
 console.log(makeItFunny('I never look back', 3));
+
+// Реализуйте функцию hasChar(), которая проверяет (с учётом регистра), содержит ли строка указанную букву.
+
+function hasChar(text, char) {
+  return text.includes(char);
+}
+
+console.log(hasChar('Renly', 'e')); // true
