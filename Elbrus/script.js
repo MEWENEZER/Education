@@ -301,4 +301,13 @@ function maps(arr) {
   return arr.map((element) => element * 2);
 }
 
-console.log(maps([1, 2, 3]));
+// console.log(maps([1, 2, 3]));
+
+// Реализуйте функцию arraySlicer, которая принимает массив и с помощью метода slice возвращает новый с первыми тремя элементами.
+// Если элементов меньше 3, то функция должна вернуть всё, что есть.
+
+function arraySlicer(arr) {
+  return arr.length < 3 ? arr : arr.slice(0, 3);
+}
+
+console.log(arraySlicer([1, 2]));
