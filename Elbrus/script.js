@@ -291,4 +291,14 @@ function valueRepeater(n, a, b) {
   return arr;
 }
 
-console.log(valueRepeater(5, 'a', 'b')); // [ 'a', 'b', 'a', 'b', 'a' ]
+// console.log(valueRepeater(5, 'a', 'b')); // [ 'a', 'b', 'a', 'b', 'a' ]
+
+// ЗАДАЧА 3
+// Реализуйте функцию, которая принимает массив целых чисел и возвращает массив с удвоением каждого значения.
+// [1, 2, 3] --> [2, 4, 6]
+
+function maps(arr) {
+  return arr.map((element) => element * 2);
+}
+
+console.log(maps([1, 2, 3]));
