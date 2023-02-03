@@ -25,3 +25,26 @@ const printNumbers = (initialNumber) => {
 };
 
 printNumbers(5);
+
+// Реализуйте функцию multiplyNumbersFromRange(), которая перемножает числа в указанном диапазоне включая границы диапазона.
+// multiplyNumbersFromRange(1, 5); // 1 * 2 * 3 * 4 * 5 = 120
+// multiplyNumbersFromRange(2, 3); // 2 * 3 = 6
+// multiplyNumbersFromRange(6, 6); // 6"
+
+function multiplyNumbersFromRange(start, end) {
+  let sum = 1;
+  let index = start;
+
+  //   for (let i = start; i <= end; i++) {
+  //     sum *= i;
+  //   }
+
+  while (index <= end) {
+    sum *= index;
+    index++;
+  }
+
+  return sum;
+}
+
+console.log(multiplyNumbersFromRange(1, 3));
