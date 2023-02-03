@@ -13,7 +13,7 @@ const getHiddenCard = (creditCardNumber, hideCount = 4) => {
   return `${'*'.repeat(hideCount)}${creditCardNumber.slice(-4)}`;
 };
 
-console.log(getHiddenCard('2034399002125581'));
+// console.log(getHiddenCard('2034399002125581'));
 
 const printNumbers = (initialNumber) => {
   while (initialNumber > 0) {
@@ -24,7 +24,7 @@ const printNumbers = (initialNumber) => {
   console.log('finished!');
 };
 
-printNumbers(5);
+// printNumbers(5);
 
 // Реализуйте функцию multiplyNumbersFromRange(), которая перемножает числа в указанном диапазоне включая границы диапазона.
 // multiplyNumbersFromRange(1, 5); // 1 * 2 * 3 * 4 * 5 = 120
@@ -47,7 +47,7 @@ function multiplyNumbersFromRange(start, end) {
   return sum;
 }
 
-console.log(multiplyNumbersFromRange(1, 3));
+// console.log(multiplyNumbersFromRange(1, 3));
 
 // Реализуйте функцию joinNumbersFromRange(), которая объединяет все числа из диапазона в строку:
 // joinNumbersFromRange(1, 1); // '1'
@@ -64,7 +64,7 @@ function joinNumbersFromRange(start, end) {
   return str;
 }
 
-console.log(joinNumbersFromRange(5, 10));
+// console.log(joinNumbersFromRange(5, 10));
 
 // Реализуйте функцию printReversedNameBySymbol(), которая печатает переданное слово посимвольно
 // const name = 'Arya';
@@ -80,7 +80,7 @@ function printReversedNameBySymbol(name) {
   }
 }
 
-printReversedNameBySymbol('Arya');
+// printReversedNameBySymbol('Arya');
 
 // A и a с её точки зрения разные символы. Реализуйте вариант этой же функции, так чтобы регистр букв был не важен:
 // countChars('ElbrUs', 'e'); // 1
@@ -98,7 +98,7 @@ function countChars(str, char) {
   return result;
 }
 
-console.log(countChars('ElbrUse', 'E'));
+// console.log(countChars('ElbrUse', 'E'));
 
 // Реализуйте такую же функцию reverse(), но выполняющую обход строки не с первого элемента по последний, а наоборот, от последнего к первому.
 // Общая структура функции при этом останется такой же. Изменится начальный индекс, условие окончания цикла,
@@ -110,7 +110,7 @@ function reverse(str) {
   return str.split('').reverse().join('');
 }
 
-console.log(reverse('Elbrus'));
+// console.log(reverse('Elbrus'));
 
 // Реализуйте функцию filterString(), принимающую на вход строку и символ, и возвращающую новую строку,
 // в которой удален переданный символ во всех его позициях.
@@ -135,7 +135,7 @@ function filterString(str, sym) {
   //   return result;
 }
 
-console.log(filterString('If I look back I am lost', 'o'));
+// console.log(filterString('If I look back I am lost', 'o'));
 
 // Напишите функцию makeItFunny(), которая принимает на вход строку и возвращает её копию,
 // у которой каждый n-ный элемент переведен в верхний регистр. n – задается на входе в функцию.
@@ -159,7 +159,7 @@ function makeItFunny(text, num) {
   return str;
 }
 
-console.log(makeItFunny('I never look back', 3));
+// console.log(makeItFunny('I never look back', 3));
 
 // Реализуйте функцию hasChar(), которая проверяет (с учётом регистра), содержит ли строка указанную букву.
 
@@ -167,7 +167,7 @@ function hasChar(text, char) {
   return text.includes(char);
 }
 
-console.log(hasChar('Renly', 'e')); // true
+// console.log(hasChar('Renly', 'e')); // true
 
 function encrypt(str) {
   let lastChild = str.split('').pop();
@@ -186,7 +186,7 @@ function encrypt(str) {
   return result;
 }
 
-console.log(encrypt('meow!'));
+// console.log(encrypt('meow!'));
 
 // accum("abcd") -> "A-Bb-Ccc-Dddd"
 // accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
@@ -202,7 +202,7 @@ function accum(str) {
   return result.slice(0, result.length - 1);
 }
 
-console.log(accum('abcd'));
+// console.log(accum('abcd'));
 
 // Реализуйте функцию, которая считает количество делителей положительного целого числа n.
 // Случайные тесты доходят до n = 500000.
@@ -224,7 +224,7 @@ function dividerCounter(n) {
   return result;
 }
 
-console.log(dividerCounter(30));
+// console.log(dividerCounter(30));
 
 // В небольшом городе население p0 = 1000 в начале года. Население постоянно растет на 2 процента каждый год
 // и еще 50 новых людей каждый год переезжают в город жить. Сколько лет необходимо городу,
@@ -257,4 +257,4 @@ function nbYear(p0, percent, aug, p) {
   return years;
 }
 
-console.log(nbYear(1500, 5, 100, 5000)); // 15
+// console.log(nbYear(1500, 5, 100, 5000)); // 15
