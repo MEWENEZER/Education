@@ -10,8 +10,18 @@
 // getHiddenCard('2034399002121100', 1); // "*1100"
 
 const getHiddenCard = (creditCardNumber, hideCount = 4) => {
-  //   return creditCardNumber.slice(-4);
   return `${'*'.repeat(hideCount)}${creditCardNumber.slice(-4)}`;
 };
 
 console.log(getHiddenCard('2034399002125581'));
+
+const printNumbers = (initialNumber) => {
+  while (initialNumber > 0) {
+    console.log(initialNumber);
+    initialNumber--;
+  }
+
+  console.log('finished!');
+};
+
+printNumbers(5);
