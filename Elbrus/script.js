@@ -258,3 +258,21 @@ function nbYear(p0, percent, aug, p) {
 }
 
 // console.log(nbYear(1500, 5, 100, 5000)); // 15
+
+// ЗАДАЧА 1
+// Напишите функцию generateIntegers, которая принимает один аргумент число n и генерирует массив,
+// который содержит целые числа от 0 до n включительно.
+// Например, generateIntegers(3) должен вернуть [0, 1, 2, 3].
+// N может быть любым целым числом больше и равным 0.
+
+function generateIntegers(n) {
+  let arr = [];
+
+  for (let i = 0; i <= n; i++) {
+    arr.push(i);
+  }
+
+  return arr;
+}
+
+console.log(generateIntegers(5));
