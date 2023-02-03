@@ -136,3 +136,27 @@ function filterString(str, sym) {
 }
 
 console.log(filterString('If I look back I am lost', 'o'));
+
+// Напишите функцию makeItFunny(), которая принимает на вход строку и возвращает её копию,
+// у которой каждый n-ный элемент переведен в верхний регистр. n – задается на входе в функцию.
+// Для определения каждого n-ного элемента понадобится остаток от деления %. Подумайте, как его можно использовать.
+
+// const text = 'I never look back';
+// // Каждый третий элемент
+// makeItFunny(text, 3); // 'I NevEr LooK bAck'
+
+function makeItFunny(text, num) {
+  let str = '';
+
+  for (let i = 0; i < text.length; i++) {
+    if ((i + 1) % num == 0) {
+      str += text[i].toUpperCase();
+    } else {
+      str += text[i];
+    }
+  }
+
+  return str;
+}
+
+console.log(makeItFunny('I never look back', 3));
