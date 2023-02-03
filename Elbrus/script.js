@@ -65,3 +65,19 @@ function joinNumbersFromRange(start, end) {
 }
 
 console.log(joinNumbersFromRange(5, 10));
+
+// Реализуйте функцию printReversedNameBySymbol(), которая печатает переданное слово посимвольно
+// const name = 'Arya';
+// printReversedNameBySymbol(name);
+// // => 'a'
+// // => 'y'
+// // => 'r'
+// // => 'A'
+
+function printReversedNameBySymbol(name) {
+  for (let i = name.length - 1; i >= 0; i--) {
+    console.log(name[i]);
+  }
+}
+
+printReversedNameBySymbol('Arya');
