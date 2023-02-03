@@ -310,4 +310,18 @@ function arraySlicer(arr) {
   return arr.length < 3 ? arr : arr.slice(0, 3);
 }
 
-console.log(arraySlicer([1, 2]));
+// console.log(arraySlicer([1, 2]));
+
+// ЗАДАЧА 1
+// Реализуйте функцию arraySquarer, которая принимает массив с числами, а возвращает новый массив, состоящий из квадратов этих чисел.
+// Для решения этой задачи используйте метод forEach.
+
+function arraySquarer(arr) {
+  let newArr = [];
+
+  arr.forEach((item) => newArr.push(Math.pow(item, 2)));
+
+  return newArr;
+}
+
+console.log(arraySquarer([1, 2, 3, 4, 5]));
