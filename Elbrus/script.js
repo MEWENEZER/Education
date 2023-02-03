@@ -48,3 +48,20 @@ function multiplyNumbersFromRange(start, end) {
 }
 
 console.log(multiplyNumbersFromRange(1, 3));
+
+// Реализуйте функцию joinNumbersFromRange(), которая объединяет все числа из диапазона в строку:
+// joinNumbersFromRange(1, 1); // '1'
+// joinNumbersFromRange(2, 3); // '23'
+// joinNumbersFromRange(5, 10); // '5678910'
+
+function joinNumbersFromRange(start, end) {
+  let str = '';
+
+  for (let i = start; i <= end; i++) {
+    str += i;
+  }
+
+  return str;
+}
+
+console.log(joinNumbersFromRange(5, 10));
