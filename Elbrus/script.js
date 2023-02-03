@@ -111,3 +111,28 @@ function reverse(str) {
 }
 
 console.log(reverse('Elbrus'));
+
+// Реализуйте функцию filterString(), принимающую на вход строку и символ, и возвращающую новую строку,
+// в которой удален переданный символ во всех его позициях.
+// Пример вызова:
+// const str = 'If I look back I am lost';
+// filterString(str, 'I'); // 'f look back am lost'
+// filterString(str, 'o'); // 'If I lk back I am lst'
+
+function filterString(str, sym) {
+  return str
+    .split('')
+    .filter((item) => item !== sym)
+    .join('');
+
+  //   let result = '';
+
+  //   for (let i = 0; i < str.length; i++) {
+  //     if (str[i] !== sym) {
+  //       result += str[i];
+  //   }
+
+  //   return result;
+}
+
+console.log(filterString('If I look back I am lost', 'o'));
