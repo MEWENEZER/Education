@@ -81,3 +81,21 @@ function printReversedNameBySymbol(name) {
 }
 
 printReversedNameBySymbol('Arya');
+
+// A и a с её точки зрения разные символы. Реализуйте вариант этой же функции, так чтобы регистр букв был не важен:
+// countChars('ElbrUs', 'e'); // 1
+// countChars('ElbrUs', 'E'); // 1
+
+function countChars(str, char) {
+  let result = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str.toLowerCase()[i] == char.toLowerCase()) {
+      result++;
+    }
+  }
+
+  return result;
+}
+
+console.log(countChars('ElbrUse', 'E'));
