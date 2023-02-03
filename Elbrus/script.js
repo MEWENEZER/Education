@@ -362,4 +362,18 @@ function counter(start, end) {
   return arr.length;
 }
 
-console.log(counter(4, 17));
+// console.log(counter(4, 17));
+
+// ЗАДАЧА 1
+// Создайте функцию sumOfLeasts, которая возвращает сумму двух положительных самых маленьких чисел массива,
+// в котором минимум 4 положительных целых числа. Дробных чисел не предусмотрено.
+// [19, 5, 42, 2, 77] // => 7.
+// [10, 343445353, 3453445, 3453545353453] // => 3453455.
+
+function sumOfLeasts(arr) {
+  let result = arr.sort((a, b) => a - b);
+
+  return result[0] + result[1];
+}
+
+console.log(sumOfLeasts([10, 343445353, 3453445, 3453545353453]));
