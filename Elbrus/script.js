@@ -168,3 +168,93 @@ function hasChar(text, char) {
 }
 
 console.log(hasChar('Renly', 'e')); // true
+
+function encrypt(str) {
+  let lastChild = str.split('').pop();
+  let result = '';
+
+  for (let i = 0; i < str.length; i++) {
+    if (i % 2 !== 0) {
+      result += str[i] + str[i - 1];
+    }
+  }
+
+  if (str.length % 2 !== 0) {
+    result += str[str.length - 1];
+  }
+
+  return result;
+}
+
+console.log(encrypt('meow!'));
+
+// accum("abcd") -> "A-Bb-Ccc-Dddd"
+// accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt") -> "C-Ww-Aaa-Tttt"
+
+function accum(str) {
+  let result = '';
+
+  for (let i = 0; i < str.length; i++) {
+    result += str[i].toUpperCase() + str[i].toLowerCase().repeat(i) + '-';
+  }
+
+  return result.slice(0, result.length - 1);
+}
+
+console.log(accum('abcd'));
+
+// Реализуйте функцию, которая считает количество делителей положительного целого числа n.
+// Случайные тесты доходят до n = 500000.
+
+// 4 --> 3 (1, 2, 4)
+// 5 --> 2 (1, 5)
+// 12 --> 6 (1, 2, 3, 4, 6, 12)
+// 30 --> 8 (1, 2, 3, 5, 6, 10, 15, 30)
+
+function dividerCounter(n) {
+  let result = 0;
+
+  for (let i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      result++;
+    }
+  }
+
+  return result;
+}
+
+console.log(dividerCounter(30));
+
+// В небольшом городе население p0 = 1000 в начале года. Население постоянно растет на 2 процента каждый год
+// и еще 50 новых людей каждый год переезжают в город жить. Сколько лет необходимо городу,
+// чтобы его население стало больше или равно p >= 1200 жителей?
+// В конце первого года: 1000 + 1000 * 0.02 + 50 => 1070 жителей.
+// В конце второго года: 1070 + 1070 * 0.02 + 50 => 1141 жителей (** число жителей всегда целое **).
+// В конце третьего года: 1141 + 1141 * 0.02 + 50 => 1213.
+// Итого понадобится 3 года.
+// Немного об аргументах:
+// p0 -население в начале года, целое число больше 0
+// процент, положительное число или с плавающей запятой
+// aug - количество жителей, которые покидают или пребывают в город, целое число
+// p - население, которое требуется достичь, целое число больше 0
+// Функция nbYear должна возвращать количество лет, которое потребуется для достижения населения больше или равно p.
+
+// nbYear(1500, 5, 100, 5000) -> 15
+// nbYear(1500000, 2.5, 10000, 2000000) -> 10
+
+function nbYear(p0, percent, aug, p) {
+  let result = 0;
+  let years = 1;
+
+  result = p0 + p0 * (percent / 100) + aug;
+
+  while (result < p) {
+    result += Math.floor(result * (percent / 100)) + aug;
+    years++;
+  }
+
+  return years;
+}
+
+console.log(nbYear(1500, 5, 100, 5000)); // 15
